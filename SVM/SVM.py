@@ -18,10 +18,7 @@ import re
 # ETAPA 1 - Carregar dataset de reviews
 # =============================
 
-# Usaremos um dataset pequeno de exemplo com 2 classes: positivo e negativo
-# Substitua isso depois por um maior se quiser
 data = pd.read_csv("reviews.csv")
-
 df = pd.DataFrame(data)
 
 # =============================
@@ -57,18 +54,18 @@ end = time.time()
 y_pred = svm_clf.predict(X_test)
 
 print("Acurácia SEM PCA:", accuracy_score(y_test, y_pred))
-print("Matriz de confusão:")
+print("\nMatriz de Confusão (SEM PCA):")
 print(confusion_matrix(y_test, y_pred))
+print("\nRelatório de Classificação (SEM PCA):")
+print(classification_report(y_test, y_pred))
 print("Tempo:", round(end - start, 4), "s")
 
 # =============================
 # ETAPA 4 - PCA + SVM
 # =============================
-
 print("\nAplicando PCA e treinando SVM COM PCA...")
 
-# Reduzir para 2 componentes só pra exemplo
-pca = PCA(n_components=2)
+pca = PCA(n_components=49)  # Valor seguro, próximo ao máximo
 X_pca = pca.fit_transform(X)
 
 X_train_pca, X_test_pca, y_train, y_test = train_test_split(X_pca, y, test_size=0.3, random_state=42)
@@ -81,12 +78,14 @@ end = time.time()
 y_pred_pca = svm_pca.predict(X_test_pca)
 
 print("Acurácia COM PCA:", accuracy_score(y_test, y_pred_pca))
-print("Matriz de confusão:")
+print("\nMatriz de Confusão (COM PCA):")
 print(confusion_matrix(y_test, y_pred_pca))
+print("\nRelatório de Classificação (COM PCA):")
+print(classification_report(y_test, y_pred_pca))
 print("Tempo:", round(end - start, 4), "s")
 
 # =============================
-# ETAPA 5 - Visualização (opcional)
+# ETAPA 5 - Visualização
 # =============================
 plt.figure(figsize=(8, 5))
 plt.scatter(X_pca[:, 0], X_pca[:, 1], c=y, cmap='coolwarm', edgecolor='k')
