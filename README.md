@@ -8,7 +8,7 @@ O projeto consiste em duas análises principais:
 
 ### 1. SVM (Support Vector Machine) - Classificação de Reviews
 - **Arquivo**: `SVM/SVM.py`
-- **Dataset**: `reviews.csv` e `reviews1.csv`
+- **Dataset**: `SVM/reviews.csv`
 - **Objetivo**: Classificar reviews de texto como positivos ou negativos
 - **Comparação**: SVM sem PCA vs SVM com PCA
 
@@ -96,11 +96,10 @@ python k-means.py
 3-Avalia-o-IA/
 │
 ├── README.md                 # Este arquivo
-├── reviews.csv              # Dataset de reviews
-├── reviews1.csv             # Dataset alternativo de reviews
 │
 ├── SVM/
-│   └── SVM.py               # Classificação com SVM
+│   ├── SVM.py               # Classificação com SVM
+│   └── reviews.csv          # Dataset de reviews
 │
 └── K-Mean/
     ├── k-means.py           # Clustering com K-Means
