@@ -7,7 +7,7 @@ Este projeto implementa e compara algoritmos de machine learning (SVM e K-Means)
 O projeto consiste em duas análises principais:
 
 ### 1. SVM (Support Vector Machine) - Classificação de Reviews
-- **Arquivo**: `SVM.py`
+- **Arquivo**: `SVM/SVM.py`
 - **Dataset**: `reviews.csv` e `reviews1.csv`
 - **Objetivo**: Classificar reviews de texto como positivos ou negativos
 - **Comparação**: SVM sem PCA vs SVM com PCA
@@ -52,9 +52,9 @@ nltk.download('stopwords')
 
 ### SVM - Classificação de Reviews
 
-1. Navegue para o diretório principal:
+1. Navegue para o diretório SVM:
 ```bash
-cd 3-Avalia-o-IA
+cd SVM
 ```
 
 2. Execute o script SVM:
@@ -96,9 +96,11 @@ python k-means.py
 3-Avalia-o-IA/
 │
 ├── README.md                 # Este arquivo
-├── SVM.py                   # Classificação com SVM
 ├── reviews.csv              # Dataset de reviews
 ├── reviews1.csv             # Dataset alternativo de reviews
+│
+├── SVM/
+│   └── SVM.py               # Classificação com SVM
 │
 └── K-Mean/
     ├── k-means.py           # Clustering com K-Means
